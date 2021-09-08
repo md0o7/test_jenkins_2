@@ -18,14 +18,14 @@ pipeline {
         stage('Stage 2: Build Code') {
             steps {
                 script {
-                    sh "mvn --version"
+                    sh "mvn clean install"
                     echo 'Build successfully'
                 }
             }
         }
         stage('Stage 3: Deploy code on Tomcat ') {
             steps {
-                    sh "ssh user@server Ip ./report_war_bkpup.sh"
+                    //sh "ssh md@localhost Ip ./report_war_bkpup.sh"
                     sh "scp jenkins workspace path for job user@serverip:/opt/tomcat-report/webapps/"
                   
             }
