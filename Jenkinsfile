@@ -18,7 +18,7 @@ pipeline {
         stage('Stage 2: Build Code') {
             steps {
                 script {
-                    sh "mvn compile"
+                    sh "mvn --version"
                     echo 'Build successfully'
                 }
             }
