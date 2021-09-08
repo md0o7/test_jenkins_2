@@ -4,7 +4,7 @@ pipeline {
   agent any
   tools{maven 'Maven'}
     environment {
-        JAVA_HOME = '/Library/Java/JavaVirtualMachines/openjdk-8.jdk/Contents/Home/bin'
+        JAVA_HOME = '/Library/Java/JavaVirtualMachines/openjdk-8.jdk/Contents/Home'
         MAVEN_HOME = '/usr/local/Cellar/maven'
         PATH = "${env.JAVA_HOME}/bin:${env.MAVEN_HOME}/bin:${env.PATH}"
     }
