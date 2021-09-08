@@ -4,7 +4,7 @@ pipeline {
   agent any
     environment {
         JAVA_HOME = '/usr/lib/jvm/jre-openjdk'
-        MAVEN_HOME = '/opt/maven'
+        MAVEN_HOME = '/usr/local/Cellar/maven'
         PATH = "${env.JAVA_HOME}/bin:${env.MAVEN_HOME}/bin:${env.PATH}"
     }
     stages {
