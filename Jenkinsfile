@@ -26,7 +26,7 @@ pipeline {
         stage('Stage 3: Deploy code on Tomcat ') {
             steps {
                     //sh "ssh md@localhost Ip ./report_war_bkpup.sh"
-                    sh "scp jenkins workspace path for job user@serverip:/opt/tomcat-report/webapps/"
+                    //sh "scp jenkins workspace path for job user@serverip:/opt/tomcat-report/webapps/"
                   
             }
         }
