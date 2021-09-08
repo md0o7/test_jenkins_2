@@ -2,6 +2,7 @@ properties([pipelineTriggers([githubPush()])])
 
 pipeline {
   agent any
+  tools{maven 'Maven'}
     environment {
         JAVA_HOME = '/usr/lib/jvm/jre-openjdk'
         MAVEN_HOME = '/usr/local/Cellar/maven'
