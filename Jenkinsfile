@@ -17,7 +17,7 @@ pipeline {
         stage('Stage 2: Build Code') {
             steps {
                 script {
-                    sh "/usr/local/Cellar/maven/bin/mvn clean install"
+                    sh "/usr/local/Cellar/maven mvn clean install"
                     echo 'Build successfully'
                 }
             }
