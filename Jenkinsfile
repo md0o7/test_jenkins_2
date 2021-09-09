@@ -15,14 +15,14 @@ pipeline {
                echo 'Checkout code successfully'
             }
         }
-        /*stage('Stage 2: Build Code') {
+        stage('Stage 2: Build Code') {
             steps {
                 script {
-                    sh "mvn clean install"
+                    //sh "mvn clean install"
                     echo 'Build successfully'
                 }
             }
-        }*/
+        }
       
         /*stage('Stage 3: Deploy code on Tomcat ') {
             steps {
