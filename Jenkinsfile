@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     //sh "mvn clean install"
-                    //sh "jar -cvf warfile.war index.html"
+                    sh "jar -cvf warfile.war index.html"
                     echo 'Build successfully'
                 }
             }
