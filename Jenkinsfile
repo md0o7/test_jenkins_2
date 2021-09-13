@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     //sh "cp warfile.war backup_warfile.war"
-                    sh "sudo ./take_backup.sh"
+                    sh "sudo -S ./take_backup.sh"
                     sh "jar -cvf warfile.war index.html"
                     echo 'Build successfully'
                 }
