@@ -1,2 +1,2 @@
-#!/bin/sh
+#!/bin/bash
 cp warfile.war backup_warfile.war
