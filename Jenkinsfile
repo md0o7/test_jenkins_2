@@ -20,7 +20,9 @@ pipeline {
       
         stage('Stage 3: Deploy code on Tomcat ') {
             steps {
-                    deploy adapters: [tomcat9(credentialsId: 'cd44540a-3e33-4775-996b-11eeb4df4099', path: '', url: 'http://localhost:8082/')], contextPath: 'tomcat_2', war: '**/*.war'
+                    //backup 
+                    //sh "cp warfile.war backup_warfile.war"
+                    deploy adapters: [tomcat9(credentialsId: 'cd44540a-3e33-4775-996b-11eeb4df4099', path: '', url: 'http://localhost:8082/')], contextPath: 'tomcat_2', war: '**/warfile.war'
                   
             }
         }
