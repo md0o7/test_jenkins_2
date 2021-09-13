@@ -1,2 +1,2 @@
 #!/bin/bash
-cp warfile.war backup_warfile.war
+sudo cp warfile.war backup_warfile.war
