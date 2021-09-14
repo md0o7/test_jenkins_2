@@ -54,7 +54,7 @@ pipeline {
           }
           
           unstable {
-          
+              echo 'unstable'
           }
           
           failure {
