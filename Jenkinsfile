@@ -20,13 +20,15 @@ pipeline {
             }
         }
       
+        
         stage('Stage 3: Deploy code on Tomcat ') {
             steps {
                     
-                    deploy adapters: [tomcat9(credentialsId: 'cd44540a-3e33-4775-996b-11eeb4df4099', path: '', url: 'http://localhost:8082/')], contextPath: 'tomcat_2', war: '**/warfile.war'
-                    deploy adapters: [tomcat9(credentialsId: 'cd44540a-3e33-4775-996b-11eeb4df4099', path: '', url: 'http://localhost:8082/')], contextPath: 'tomcat_backup', war: '**/backup_warfile.war'
+//                    deploy adapters: [tomcat9(credentialsId: 'cd44540a-3e33-4775-996b-11eeb4df4099', path: '', url: 'http://localhost:8082/')], contextPath: 'tomcat_2', war: '**/warfile.war'
+//                    deploy adapters: [tomcat9(credentialsId: 'cd44540a-3e33-4775-996b-11eeb4df4099', path: '', url: 'http://localhost:8082/')], contextPath: 'tomcat_backup', war: '**/backup_warfile.war'
             }
         }
+      
       
         /*stage('Stage 4: Stop Start Tomcat Process') {
             steps {
@@ -35,5 +37,32 @@ pipeline {
             }
          
         }*/
+        
+        
+        post {
+          always {
+            echo 'Post Build Actions:'
+          }
+          
+          success {
+            echo 'Build is Successful. Deploying New Build...'
+            deploy adapters: [tomcat9(credentialsId: 'cd44540a-3e33-4775-996b-11eeb4df4099', path: '', url: 'http://localhost:8082/')], contextPath: 'tomcat_2', war: '**/warfile.war'
+            deploy adapters: [tomcat9(credentialsId: 'cd44540a-3e33-4775-996b-11eeb4df4099', path: '', url: 'http://localhost:8082/')], contextPath: 'tomcat_backup', war: '**/backup_warfile.war'
+
+          }
+          
+          unstable {
+          
+          }
+          
+          failure {
+            //mail to: mail@gmail.com, subject: 'The Pipeline failed :('
+            echo 'build failed'
+          }
+        }
+        
+        
+      
+      
     }
 }
