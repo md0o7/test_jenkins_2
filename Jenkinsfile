@@ -31,13 +31,16 @@ pipeline {
         }
       
       
-        /*stage('Stage 4: Stop Start Tomcat Process') {
+        stage('Stage 4: Stop Start Tomcat Process') {
             steps {
-                    sh "md@localhost shutdown.sh startup.sh"
+                    //sh "md@localhost shutdown.sh startup.sh"
+              script{
+                /Library/Tomcat9/bin/startup.sh
+              }
                   
             }
          
-        }*/
+        }
         
     }
         
@@ -62,7 +65,6 @@ pipeline {
             
             script {
                     echo 'build failed'
-                    deploy adapters: [tomcat9(credentialsId: 'cd44540a-3e33-4775-996b-11eeb4df4099', path: '', url: 'http://localhost:8082/')], contextPath: 'tomcat_backup', war: '**/backup_warfile.war'
                     sh "cp backup_warfile.war  warfile.war"
                     
                 }
