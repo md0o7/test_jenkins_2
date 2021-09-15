@@ -59,7 +59,12 @@ pipeline {
           
           failure {
             //mail to: mail@gmail.com, subject: 'The Pipeline failed :('
-            echo 'build failed'
+            
+            script {
+                    echo 'build failed'
+                    sh "cp backup_warfile.war  warfile.war"
+                    
+                }
           }
         }
         
