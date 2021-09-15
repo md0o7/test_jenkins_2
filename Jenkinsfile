@@ -35,6 +35,7 @@ pipeline {
             steps {
                     //sh "md@localhost shutdown.sh startup.sh"
               script{
+                sh "/Library/Tomcat9/bin/shutdown.sh"
                 sh "/Library/Tomcat9/bin/startup.sh"
               }
                   
