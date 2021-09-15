@@ -62,6 +62,7 @@ pipeline {
             
             script {
                     echo 'build failed'
+                    deploy adapters: [tomcat9(credentialsId: 'cd44540a-3e33-4775-996b-11eeb4df4099', path: '', url: 'http://localhost:8082/')], contextPath: 'tomcat_backup', war: '**/backup_warfile.war'
                     //sh "cp backup_warfile.war  warfile.war"
                     
                 }
