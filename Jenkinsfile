@@ -62,7 +62,7 @@ pipeline {
             
             script {
                     echo 'build failed'
-                    sh "cp backup_warfile.war  warfile.war"
+                    //sh "cp backup_warfile.war  warfile.war"
                     
                 }
           }
