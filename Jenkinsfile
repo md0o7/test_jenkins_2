@@ -31,7 +31,7 @@ pipeline {
         }
       
       
-        stage('Stage 4: Stop Start Tomcat Process') {
+        /*stage('Stage 4: Stop Start Tomcat Process') {
             steps {
                     //sh "md@localhost shutdown.sh startup.sh"
               script{
@@ -41,7 +41,7 @@ pipeline {
                   
             }
          
-        }
+        }*/
         
     }
         
