@@ -2,6 +2,11 @@ properties([pipelineTriggers([githubPush()])])
 
 pipeline {
   agent any
+  
+  environment {
+        LAST_SUCCESSFUL_BUILD = localhost:8080/job/Trial2/lastSuccessfulBuild/buildNumber
+    }
+  
     stages {
         stage('Stage 1: PULL code from Git') {
             steps {
@@ -66,8 +71,8 @@ pipeline {
             
             script {
                     echo 'build failed'
-                    build_id="wget -qO- localhost:8080/job/Trial2/lastSuccessfulBuild/buildNumber"
-                    echo "Last Successful Build : $build_id"
+                    //build_id="localhost:8080/job/Trial2/lastSuccessfulBuild/buildNumber"
+                    //echo "Last Successful Build : $build_id"
                     sh "cp backup_warfile.war  warfile.war"
                     
                 }
