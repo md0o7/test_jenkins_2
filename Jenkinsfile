@@ -4,7 +4,7 @@ pipeline {
   agent any
   
  environment {
-        LAST_SUCCESSFUL_BUILD = `wget -qO- localhost:8080/job/Trial2/lastSuccessfulBuild/buildNumber`
+        LAST_SUCCESSFUL_BUILD = 'wget -qO- localhost:8080/job/Trial2/lastSuccessfulBuild/buildNumber'
     }
   
     stages {
