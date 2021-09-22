@@ -3,9 +3,9 @@ properties([pipelineTriggers([githubPush()])])
 pipeline {
   agent any
   
- //environment {
-        def LAST_SUCCESSFUL_BUILD = localhost:8080/job/Trial2/lastSuccessfulBuild/buildNumber
-    //}
+ environment {
+        LAST_SUCCESSFUL_BUILD = `wget -qO- localhost:8080/job/Trial2/lastSuccessfulBuild/buildNumber`
+    }
   
     stages {
         stage('Stage 1: PULL code from Git') {
