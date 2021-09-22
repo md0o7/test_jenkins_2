@@ -66,7 +66,7 @@ pipeline {
             
             script {
                     echo 'build failed'
-                    build_id=`wget -qO- jenkins_url/job/job_name/lastSuccessfulBuild/buildNumber`
+                    build_id='wget -qO- jenkins_url/job/job_name/lastSuccessfulBuild/buildNumber'
                     echo 'Last Successful Build : '
                     sh "cp backup_warfile.war  warfile.war"
                     
