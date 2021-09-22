@@ -23,7 +23,7 @@ pipeline {
         
         stage('Stage 3: Deploy code on Tomcat ') {
             steps {
-                      echo 'deploying...'
+                      echo 'deploying... $BUILD_NUMBER'
                     
                     //deploy adapters: [tomcat9(credentialsId: 'cd44540a-3e33-4775-996b-11eeb4df4099', path: '', url: 'http://localhost:8082/')], contextPath: 'tomcat_2', war: '**/warfile.war'
 //                    deploy adapters: [tomcat9(credentialsId: 'cd44540a-3e33-4775-996b-11eeb4df4099', path: '', url: 'http://localhost:8082/')], contextPath: 'tomcat_backup', war: '**/backup_warfile.war'
@@ -66,7 +66,7 @@ pipeline {
             
             script {
                     echo 'build failed'
-                    build_id=wget -qO- localhost:8080/job/Trial2/lastSuccessfulBuild/buildNumber
+                    build_id="wget -qO- localhost:8080/job/Trial2/lastSuccessfulBuild/buildNumber"
                     echo "Last Successful Build : $build_id"
                     sh "cp backup_warfile.war  warfile.war"
                     
