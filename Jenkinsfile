@@ -15,7 +15,7 @@ pipeline {
         stage('Stage 2: Build Code') {
             steps {
                 script {
-                    sh "cp warfile.war backup_warfile.war"
+                    //sh "cp warfile.war backup_warfile.war"
                     //sh "md@localhost take_backup.sh"
                     sh "jar -cvf warfile.war index.html"
                     echo 'Build successfully'
